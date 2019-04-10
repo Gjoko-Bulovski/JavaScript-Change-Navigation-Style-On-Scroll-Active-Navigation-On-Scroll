@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: whitesmoke;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    overflow-x: hidden;
+    margin-top: 44px;
+    scroll-padding-top: 44px;
+}
+html {
+    scroll-behavior: smooth;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#main {
+    position: relative;
+    width: 1280px;
+    background: #fff;
+}
+
+/** Header **/
+header {
+    position: fixed;
+    position: -webkit-fixed;
+    top: 0;
+    width: 1280px;
+    background: #fff;
+    z-index: 1000;
+    border-bottom: 1px solid darkturquoise;
+}
+
+/** Navigation **/
+.nav-container {
+    width: 1280px;
+    margin: auto;
+    padding: 10px 0;
+}
+.nav-checkbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+.nav-logo {
+    text-decoration: none;
+    color: darkturquoise;
+    display: grid;
+    justify-self: start;
+    margin-left: 20px;
+    padding: 2px;
+    font-weight: 600;
+}
+.nav-logo:hover {
+    color: #000;
+}
+.tab-nav {
+    display: none;
+}
+.tab-nav-label {
+    color: #000;
+    display: none;
+}
+.tab-content {
+    list-style: none;
+    justify-self: end;
+    margin: 0;
+    padding: 0;
+}
+.tab-content li {
+    display: inline-block;
+    margin-right: 20px;
+}
+.tab-content li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+}
+
+/** style on scroll **/
+.nav-container.scroll {
+    background: darkturquoise;
+}
+.nav-container.scroll a {
+    color: #fff;
+}
+
+/** active navigation **/
+.nav-container.scroll a.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+.nav-container a.active {
+    color: darkturquoise;
+    border-bottom: 2px solid darkturquoise;
+}
+
+/** section **/
+section {
+    padding: 20px;
+    text-align: center;
+}
+section h1 {
+    padding: 20px;
+}
+
+/** footer **/
+footer {
+    min-height: 600px;
+    background: darkturquoise;
+    text-align: center;
+}
+
+/** media screen **/
+@media screen and (max-width: 1280px) {
+    #main {
+        width: 100%;
+    }
+    header {
+        width: 100%;
+    }
+    .nav-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tab-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column: 1/4;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        justify-self: center;
+        transition: all ease-in-out 0.4s;
+        -o-transition: all ease-in-out 0.4s;
+        -webkit-transition: all ease-in-out 0.4s;
+    }
+    .tab-nav-label {
+        display: grid;
+        cursor: pointer;
+        grid-column: 3;
+        padding-right: 20px;
+    }
+    .nav-checkbox input:checked ~ .tab-content {
+        max-height: 400px;
+    }
+    .tab-content li {
+        padding: 10px 0;
+    }
+    .nav-checkbox input:checked ~ .tab-nav-label {
+        color: #000;
+    }
+}
